@@ -17,17 +17,6 @@ const deleteKaracsonyfaMW = require('../middleware/karacsonyfa/deleteKaracsonyfa
 module.exports = function (app) {
     const objectRepo = {};
 
-    app.use('/',
-        getTopVasarlokMW(objectRepo),
-        userValidationMW(objectRepo),
-        handleWrongPassMW(objectRepo),
-        renderMW(objectRepo, 'index'));
-
-    app.get('/vasarlok',
-        authMW(objectRepo),
-        getVasarlokMW(objectRepo),
-        renderMW(objectRepo, 'vasarlok'));
-
     app.use('/vasarlok/new',
         authMW(objectRepo),
         saveVasarloMW(objectRepo),
@@ -45,12 +34,10 @@ module.exports = function (app) {
         deleteVasarloMW(objectRepo),
         renderMW(objectRepo, 'vasarlok'));
 
-
-    app.get('/karacsonyfak/:vasarloid',
+    app.get('/vasarlok',
         authMW(objectRepo),
-        getVasarloMW(objectRepo),
-        getKaracsonyfakMW(objectRepo),
-        renderMW(objectRepo, 'karacsonyfak'));
+        getVasarlokMW(objectRepo),
+        renderMW(objectRepo, 'vasarlok'));
 
     app.use('/karacsonyfak/:vasarloid/new',
         authMW(objectRepo),
@@ -71,4 +58,16 @@ module.exports = function (app) {
         getKaracsonyfaMW(objectRepo),
         deleteKaracsonyfaMW(objectRepo),
         renderMW(objectRepo, 'karacsonyfak'));
+
+    app.get('/karacsonyfak/:vasarloid',
+        authMW(objectRepo),
+        getVasarloMW(objectRepo),
+        getKaracsonyfakMW(objectRepo),
+        renderMW(objectRepo, 'karacsonyfak'));
+
+    app.use('/',
+        getTopVasarlokMW(objectRepo),
+        userValidationMW(objectRepo),
+        handleWrongPassMW(objectRepo),
+        renderMW(objectRepo, 'index'));
 }

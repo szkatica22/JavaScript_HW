@@ -1,0 +1,45 @@
+<%- include('header', {title:'Karácsonyfa'}) -%>
+<%- include('menu') -%>
+
+<div class="container">
+    <h1>Új Karácsonyfa / Karácsonyfa módosítása</h1>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Fantázianév</label>
+                <input type="text" class="form-control" id="inputName">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputHeight">Magasság (méter)</label>
+                <input type="number" class="form-control" id="inputHeight" placeholder="0.8">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="my-1 mr-2" for="inlineFormCustomSelectType">Típus</label>
+                <select class="custom-select" id="inlineFormCustomSelectType">
+                    <option selected>...</option>
+                    <option value="1">Luc</option>
+                    <option value="2">Ezüst</option>
+                    <option value="3">Nordmann</option>
+                    <option value="4">Nordmann</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPrice">Ár (forint)</label>
+                <input type="number" class="form-control" id="inputPrice" placeholder="8000">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <!--                <button type="submit" class="btn btn-primary">Save</button>-->
+                <a href="/karacsonyfak/22" class="btn btn-info btn-lg active" role="button">Fa mentése</a>
+            </div>
+            <div class="form-group col-md-4">
+                <!--                <button type="button" class="btn btn-primary">Back to Trees</button>-->
+                <a href="/karacsonyfak/22" class="btn btn-info btn-lg active" role="button">Vissza</a>
+            </div>
+        </div>
+    </form>
+
+<%- include('footer') -%>

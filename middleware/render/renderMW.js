@@ -3,11 +3,12 @@
  */
 const requireOption = require('../requireOption');
 
-module.exports = function (objectrepository, viewName) {
+module.exports = function (objectRepository, viewName) {
 
     return function (req, res) {
-        console.log('render: ' + viewName);
-        res.end('Template: ' + viewName);
+        res.render(viewName, res.locals);
+        // console.log('render: ' + viewName);
+        // res.end('Template: ' + viewName);
     };
 
 };

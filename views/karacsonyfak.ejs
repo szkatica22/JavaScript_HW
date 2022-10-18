@@ -1,0 +1,46 @@
+<%- include('header', {title:'Karácsonyfák'}) -%>
+<%- include('menu') -%>
+
+<div class="container">
+    <h1>Karácsonyfák</h1>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Fantázianév</th>
+                    <th scope="col">Típus</th>
+                    <th scope="col">Magasság (m)</th>
+                    <th scope="col">Ár(forint)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Lackó</th>
+                    <td>Luc</td>
+                    <td>0.8</td>
+                    <td>8 000</td>
+                    <td>
+                        <a href="/karacsonyfak/22/edit/7" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
+                        <a href="/karacsonyfak/22" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Csillag</th>
+                    <td>Nordmann</td>
+                    <td>1.5</td>
+                    <td>14 000</td>
+                    <td>
+                        <a href="/karacsonyfak/22/edit/7" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
+                        <a href="/karacsonyfak/22" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <a href="/vasarlok" class="btn btn-info btn-back" role="button">Vissza a vásárlókhoz</a>
+            <a href="/karacsonyfak/22/new" class="btn btn-info btn-new" role="button">Új karácsonyfa</a>
+        </div>
+    </div>
+<%- include('footer') -%>

@@ -1,0 +1,46 @@
+<%- include('header', {title:'Vásráló - karácsonyfa admin'}) -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2>Top vásárlók</h2>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                        Fák száma
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Nagy Józsi
+                    </td>
+                    <td>
+                        2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Oláh Szilvi
+                    </td>
+                    <td>
+                        1
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-4">
+            <h2>Admin</h2>
+            <form>
+                <div class="form-group">
+                    <label for="pass">Jelszó</label>
+                    <input type="password" class="form-control" id="pass" name="password">
+                </div>
+                <a class="btn btn-primary" href="/vasarlok">Belépés</a>
+            </form>
+        </div>
+    </div>
+
+<%- include('footer') -%>

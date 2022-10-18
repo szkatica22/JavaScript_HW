@@ -1,0 +1,57 @@
+<%- include('header', {title:'Vásárlók'}) -%>
+<%- include('menu') -%>
+
+<div class="container">
+    <h1>Vásárlók</h1>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Név</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Város</th>
+                    <th scope="col">Fák száma</th>
+                    <th scope="col">Lehetőségek</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Nagy Józsi</th>
+                    <td>njozsi7@valami.hu</td>
+                    <td>Győr</td>
+                    <td style="display:flex;justify-content: space-between;align-items: center">2 <a href="/karacsonyfak/22" class="btn btn-primary btn-lg" role="button"><i class="fas fa-eye"></i></a>
+                    <td>
+                        <a href="/vasarlok/edit/22" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
+                        <a href="/vasarlok" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Oláh Szilvi</th>
+                    <td>szilviolah@email.com</td>
+                    <td>Budapest</td>
+                    <td style="display:flex;justify-content: space-between;align-items: center">1 <a href="/karacsonyfak/22" class="btn btn-primary btn-lg" role="button"><i class="fas fa-eye"></i></a>
+                    <td>
+                        <a href="/vasarlok/edit/22" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
+                        <a href="/vasarlok" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Horváth András</th>
+                    <td>alibaba48@cim.hu</td>
+                    <td>Érd</td>
+                    <td style="display:flex;justify-content: space-between;align-items: center">1 <a href="/karacsonyfak/22" class="btn btn-primary btn-lg" role="button"><i class="fas fa-eye"></i></a>
+                    <td>
+                        <a href="/vasarlok/edit/22" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
+                        <a href="/vasarlok" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <a href="/vasarlok/new" class="btn btn-info btn-back" role="button">Új vásárló hozzáadása</a>
+        </div>
+    </div>
+
+<%- include('footer') -%>
