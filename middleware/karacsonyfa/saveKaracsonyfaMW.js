@@ -9,6 +9,17 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {
     return function(req, res, next){
-        next();
+
+        console.log("USERID: ", res.locals.vasarlo._id);
+
+        if((typeof req.body.nev === 'undefined') || (typeof req.body.tipus === 'undefined') ||
+            (typeof req.body.magassag === 'undefined') || (typeof req.body.ar === 'undefined')){
+            return next();
+        }
+        console.log("Karacsonyfa adatai sikeresen mentve");
+        console.log(req.body);
+        res.redirect('/karacsonyfak/', res.locals.vasarlo._id);  // todo
+
+        return next();
     }
 }

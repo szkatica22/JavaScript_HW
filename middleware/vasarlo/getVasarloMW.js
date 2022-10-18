@@ -7,6 +7,15 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {
     return function(req, res, next){
-        next();
+
+        res.locals.vasarlo = {
+            _id: 'id1',
+            nev: "Nagy Józsi",
+            email: "njozsi7@valami.hu",
+            varos: "Győr",
+            fakszama: "2",
+        };
+
+        return next();
     }
 }

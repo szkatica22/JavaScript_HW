@@ -2,30 +2,31 @@
 <%- include('menu') -%>
 
 <div class="container">
-    <h1>Új Vásárló/Vásárló módosítása</h1>
-    <form>
+    <h1>Vásárló <% if (typeof vasarlo === "undefined") { %>létrehozása<% }else{ %>módosítása <% } %></h1>
+    <form method="post">
+        <input type="hidden" name="id" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo._id %>">
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputName">Név</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Név">
+                <input type="text" class="form-control" id="inputName" placeholder="Név" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.nev %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputEmail">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.email %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputCity">Város</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" placeholder="Budapest" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.varos %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <!--                <button type="submit" class="btn btn-primary">Save</button>-->
-                <a href="/vasarlok" class="btn btn-info btn-lg active" role="button">Vásárló mentése</a>
+                <input type="submit" href="/vasarlok" class="btn btn-info btn-lg active" role="button" value="Vásárló mentése"/>
             </div>
             <div class="form-group col-md-4">
                 <!--                <button type="button" class="btn btn-primary">Back to Customers</button>-->

@@ -9,6 +9,13 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {
     return function(req, res, next){
-        next();
+        if((typeof req.body.nev === 'undefined') || (typeof req.body.email === 'undefined') ||
+            (typeof req.body.varos === 'undefined')){
+            return next();
+        }
+        console.log("Felhasznalo adatai sikeresen mentve");
+        console.log(req.body);
+        res.redirect('/vasarlok');
+        return next();
     }
 }
