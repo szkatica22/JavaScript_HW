@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>Vásráló - karácsonyfa admin</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    .container {
+        padding: 2rem 0rem;
+    }
+
+    h4 {
+        margin: 2rem 0rem 1rem;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    /*td label, th label {*/
+    /*    display: flex;*/
+    /*    align-items: center;*/
+    /*}*/
+
+    div div div.container{
+        display: grid;
+    }
+
+    div div div.container a{
+        margin: 20px 40px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2>Top vásárlók</h2>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                        Fák száma
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Nagy Józsi
+                    </td>
+                    <td>
+                        2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Oláh Szilvi
+                    </td>
+                    <td>
+                        1
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-4">
+            <h2>Admin</h2>
+            <form>
+                <div class="form-group">
+                    <label for="pass">Jelszó</label>
+                    <input type="password" class="form-control" id="pass" name="password">
+                </div>
+                <a class="btn btn-primary" href="/vasarlok.html">Belépés</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

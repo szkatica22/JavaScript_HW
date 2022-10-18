@@ -1,0 +1,103 @@
+Vásárlók és karácsonyfák:
+
+ - index.html - login form (szöveg + gomb), majd: vásárlók listája
+ - vasarlok.html - táblázat a vásárlókkal és az ő adataikkal. Utolsó oszlop: edit/delete, utolsó előtti: karácsonyfák megnézése.; új vásárló felvételéhez van külön gomb a táblázat alatt
+
+ - vasarlo.html - form - meglévő vásárló/új vásárló - adatmódositás; mentés/vissza gombok
+ - karacsonyfak.html - táblázat - 1 vásárlóhoz tartozó karácsonyfák listája + adatai - edit/delete gomb; táblázat alatt új fa felvétele + vissza a vásárlókhoz gombok
+ - karacsonyfa.html - form - meglévő fa/új fa - adatmódositás; mentés/vissza gombok
+
+ ROUTING:
+
+    renderMW.js
+
+ middleware/auth/
+     handleWrongPassMW.js
+     userValidationMW.js
+     authMW.js
+
+ middleware/vasarlo/
+     getTopVasarlokMW.js
+     getVasarlokMW.js
+     getVasarloMW.js
+     saveVasarloMW.js
+     deleteVasarloMW.js
+
+ middleware/karacsonyfa/
+     getKaracsonyfakMW.js
+     getKaracsonyfaMW.js
+     saveKaracsonyfaMW.js
+     deleteKaracsonyfaMW.js
+
+
+
+    GET /?hiba=rosszjelszo
+        getTopVasarlokMW
+        handleWrongPassMW (get paramétert néz - templatebe változó lerak)
+        renderMW(index.html)
+
+    GET, POST /login                                     - jelszóellenőrzés ? vásárlókra : vissza a főoldalra
+        userValidationMW(...post param beerkezik, megnezi azonos-e vmivel, ha igen beleptet session segitsegevel, ha nem akkor atiranyitja)
+        renderMW(login.html)
+
+    GET /vasarlok
+        authMW(ha a felhasznalo ba van jelentkezve, next-t hiv, ha nincs atiranyit a GET /?hiba=lepjbe-ra)
+        getVasarlokMW(DBbol lekeri a vasarlokat...)
+        renderMW(vasarlok.html)
+
+    GET, POST /vasarlok/new
+        authMW
+        saveVasarloMW
+            if(typeof req.body.name == 'undefined'){  // ha nem erkezik be a vasarlo neve egy post hivason keresztul - nem kattintott a save gombra
+                return next();
+            }
+
+            ha sikerult a mentes, akkor:
+                res.redirect('/vasarlo');
+            ha nem sikerült:
+                res.locals;
+                next();
+        renderMW(vasarlo.html (new))
+            - ha volt valami ertek beküldve az egyes form elemek ezzel toltodjenek fel, ha nem akk nem
+
+    GET, POST /vasarlok/edit/:vasarloid
+        authMW
+        getVasarloMW
+        saveVasarloMW
+        renderMW(vasarlo.html (edit))
+                    - ha volt valami ertek beküldve az egyes form elemek ezzel toltodjenek fel, ha nem akk az eredeti elemekkel
+
+    GET /vasarlok/delete/:vasarloid
+        authMW
+        getVasarloMW()
+        deleteVasarloMW   - torol es atiranyitja a felhasznalot
+            res.locals.vasarlo.delete();
+            res.redirect('/vasarlok');
+        render(vasarlok.html)
+
+    GET /karacsonyfak/:vasarloid
+        authMW
+        getVasarloMW
+        getKaracsonyfakMW
+        renderMW(karacsonyfak.html)
+
+    GET, POST /karacsonyfak/:vasarloid/:karacsonyfaid
+        authMW
+        getVasarloMW
+        getKaracsonyfaMW
+        saveKaracsonyfaMW
+        renderMW(karacsonyfa.html)
+
+    GET /karacsonyfak/:vasarloid/:karacsonyfaid/delete
+        authMW
+        getVasarloMW()
+        getKaracsonyfaMW()
+        deleteKaracsonyfaMW   - torol es atiranyitja a felhasznalot
+            res.locals.karacsonyfa.delete();
+            res.redirect('/karacsonyfak');
+        render(karacsonyfak.html)
+
+
+ REGISZTRACIO:  - KELL: login.html
+  - elfelejtett jelszo
+  - regisztracio
