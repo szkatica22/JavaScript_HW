@@ -19,15 +19,15 @@
                 <% vasarlok.forEach(function(vasarlo){ %>
                     <tr>
                         <th scope="row">
-                            <%= vasarlo.nev %>
+                            <%= vasarlo.name %>
                         </th>
                         <td>
                             <%= vasarlo.email %>
                         </td>
                         <td>
-                            <%= vasarlo.varos %>
+                            <%= vasarlo.country %>
                         </td>
-                        <td style="display:flex;justify-content: space-between;align-items: center"> <%= vasarlo.fakszama %> <a href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-primary btn-lg" role="button"><i class="fas fa-eye"></i></a>
+                        <td style="display:flex;justify-content: space-between;align-items: center"> <%= vasarlo.treeNum %> <a href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-primary btn-lg" role="button"><i class="fas fa-eye"></i></a>
                         <td>
                             <a href="/vasarlok/edit/<%= vasarlo._id %>" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>
                             <a href="/vasarlok" class="btn btn-danger btn-lg" role="button"><i class="far fa-trash-alt"></i></a>

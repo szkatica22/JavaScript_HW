@@ -6,16 +6,31 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {
+
+    const vasarloModel = requireOption(objectRepository, 'customerModel');
+
     return function(req, res, next){
 
-        res.locals.vasarlo = {
-            _id: 'id1',
-            nev: "Nagy Józsi",
-            email: "njozsi7@valami.hu",
-            varos: "Győr",
-            fakszama: "2",
-        };
+        vasarloModel.findOne({
+            _id: req.params['vasarloid']
+        }, function (err, result){
+            if((err) || (!result)){
+                return res.redirect('/vasarlok');
+            }
 
-        return next();
+            res.locals.vasarlo = result;
+            console.log(result);
+            return next();
+        });
+
+        // res.locals.vasarlo = {
+        //     _id: 'id1',
+        //     nev: "Nagy Józsi",
+        //     email: "njozsi7@valami.hu",
+        //     varos: "Győr",
+        //     fakszama: "2",
+        // };
+
+        // return next();
     }
 }

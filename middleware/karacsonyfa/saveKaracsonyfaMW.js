@@ -20,6 +20,6 @@ module.exports = function (objectRepository) {
         console.log(req.body);
         res.redirect('/karacsonyfak/', res.locals.vasarlo._id);  // todo
 
-        return next();
+        // return next();
     }
 }

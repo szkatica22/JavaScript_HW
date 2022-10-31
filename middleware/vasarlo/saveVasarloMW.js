@@ -16,6 +16,6 @@ module.exports = function (objectRepository) {
         console.log("Felhasznalo adatai sikeresen mentve");
         console.log(req.body);
         res.redirect('/vasarlok');
-        return next();
+        // return next();
     }
 }

@@ -4,15 +4,21 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const karacsonyfaModel = requireOption(objectrepository, 'treeModel');
+
     return function (req, res, next) {
 
-        res.locals.karacsonyfa = {
-            _id: "fa1",
-            nev: "Lackó",
-            tipus: "Luc",
-            magassag: "0.8",
-            ar: "8000"
-        };
-        return next();
+        karacsonyfaModel.findOne({
+            owner_ID: req.params['vasarloid'],
+            _id: req.params['karacsonyfaid']
+        }, function (err, result) {
+            if((err) || (!result)){
+                return res.redirect('/karacsonyfak/', req.params['vasarloid']);
+            }
+
+            res.locals.karacsonyfa = result;
+            return next();
+        });
     };
 };

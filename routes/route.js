@@ -14,8 +14,14 @@ const getKaracsonyfaMW = require('../middleware/karacsonyfa/getKaracsonyfaMW');
 const saveKaracsonyfaMW = require('../middleware/karacsonyfa/saveKaracsonyfaMW');
 const deleteKaracsonyfaMW = require('../middleware/karacsonyfa/deleteKaracsonyfaMW');
 
+const customerModel = require('../models/vasarlo');
+const treeModel = require('../models/karacsonyfa');
+
 module.exports = function (app) {
-    const objectRepo = {};
+    const objectRepo = {
+        customerModel: customerModel,
+        treeModel: treeModel,
+    };
 
     app.use('/vasarlok/new',
         authMW(objectRepo),

@@ -8,11 +8,11 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputName">Fantázianév</label>
-                <input type="text" class="form-control" id="inputName" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.nev %>">
+                <input type="text" class="form-control" id="inputName" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.name %>">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputHeight">Magasság (méter)</label>
-                <input type="number" class="form-control" id="inputHeight" placeholder="0.8" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.magassag %>">
+                <input type="number" class="form-control" id="inputHeight" placeholder="0.8" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.height %>">
             </div>
         </div>
         <div class="form-row">
@@ -20,21 +20,21 @@
                 <label class="my-1 mr-2" for="inlineFormCustomSelectType">Típus</label>
                 <select class="custom-select" id="inlineFormCustomSelectType">
                     <option selected>...</option>
-                    <option value="1" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.tipus === "Luc") { %>selected<% }%>>Luc</option>
-                    <option value="2" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.tipus === "Ezüst") { %>selected<% }%>>Ezüst</option>
-                    <option value="3" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.tipus === "Nordmann") { %>selected<% }%>>Nordmann</option>
-                    <option value="4" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.tipus === "Mű") { %>selected<% }%>>Mű</option>
+                    <option value="1" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Luc") { %>selected<% }%>>Luc</option>
+                    <option value="2" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Ezüst") { %>selected<% }%>>Ezüst</option>
+                    <option value="3" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Nordmann") { %>selected<% }%>>Nordmann</option>
+                    <option value="4" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Mű") { %>selected<% }%>>Mű</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
                 <label for="inputPrice">Ár (forint)</label>
-                <input type="number" class="form-control" id="inputPrice" placeholder="8000" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.ar %>">
+                <input type="number" class="form-control" id="inputPrice" placeholder="8000" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.price %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <!--                <button type="submit" class="btn btn-primary">Save</button>-->
-                <input type="submit" href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-info btn-lg active" role="button" value="Karácsonyfa mentése"/>
+                <a type="submit" href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-info btn-lg active" role="button">Karácsonyfa mentése</a>
             </div>
             <div class="form-group col-md-4">
                 <!--                <button type="button" class="btn btn-primary">Back to Trees</button>-->

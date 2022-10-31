@@ -18,16 +18,16 @@
                     <% karacsonyfak.forEach(function(karacsonyfa){ %>
                 <tr>
                     <th scope="row">
-                        <%= karacsonyfa.nev %>
+                        <%= karacsonyfa.name %>
                     </th>
                     <td>
-                        <%= karacsonyfa.tipus %>
+                        <%= karacsonyfa.type %>
                     </td>
                     <td>
-                        <%= karacsonyfa.magassag %>
+                        <%= karacsonyfa.height %>
                     </td>
                     <td>
-                        <%= karacsonyfa.ar %>
+                        <%= karacsonyfa.price %>
                     </td>
                     <td>
                         <a href="/karacsonyfak/<%= vasarlo._id %>/edit/<%= karacsonyfa._id %>" class="btn btn-success btn-lg" role="button"><i class="fas fa-edit"></i></a>

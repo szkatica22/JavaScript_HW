@@ -8,7 +8,7 @@
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputName">Név</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Név" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.nev %>">
+                <input type="text" class="form-control" id="inputName" placeholder="Név" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.name %>">
             </div>
         </div>
         <div class="form-row">
@@ -20,13 +20,13 @@
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputCity">Város</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Budapest" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.varos %>">
+                <input type="text" class="form-control" id="inputCity" placeholder="Budapest" value="<%= (typeof  vasarlo === "undefined") ? '' : vasarlo.country %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <!--                <button type="submit" class="btn btn-primary">Save</button>-->
-                <input type="submit" href="/vasarlok" class="btn btn-info btn-lg active" role="button" value="Vásárló mentése"/>
+                <a type="submit" href="/vasarlok" class="btn btn-info btn-lg active" role="button">Vásárló mentése</a>
             </div>
             <div class="form-group col-md-4">
                 <!--                <button type="button" class="btn btn-primary">Back to Customers</button>-->
