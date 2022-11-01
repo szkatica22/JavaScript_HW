@@ -19,7 +19,6 @@ module.exports = function (objectRepository) {
             }
 
             res.locals.vasarlo = result;
-            console.log(result);
             return next();
         });
 

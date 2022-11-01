@@ -13,22 +13,16 @@
                         Fák száma
                     </th>
                 </tr>
-                <tr>
-                    <td>
-                        Nagy Józsi
-                    </td>
-                    <td>
-                        2
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Oláh Szilvi
-                    </td>
-                    <td>
-                        1
-                    </td>
-                </tr>
+                <% topvasarlok.forEach(function(topvasarlo){ %>
+                    <tr>
+                        <td scope="row">
+                            <%= topvasarlo.name %>
+                        </td>
+                        <td>
+                            <%= topvasarlo.treeNum %>
+                        </td>
+                    </tr>
+                <% }); %>
             </table>
         </div>
         <div class="col-4">

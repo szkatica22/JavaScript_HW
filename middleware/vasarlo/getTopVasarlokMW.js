@@ -4,8 +4,20 @@
  */
 const requireOption = require('../requireOption');
 
-module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        next();
-    };
+module.exports = function (objectRepository) {
+    const topVasarloModel = requireOption(objectRepository, 'customerModel');
+
+    return function(req, res, next){
+
+        topVasarloModel.find({
+            treeNum: { $gt: 1},
+            $sort: {treeNum : 1}
+        }, function (err, results) {
+            if(err){
+                return next(new Error('Error getting topVasarlok'));
+            }
+            res.locals.topvasarlok = results;
+            return next();
+        });
+    }
 };
