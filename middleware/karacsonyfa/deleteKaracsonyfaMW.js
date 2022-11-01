@@ -18,7 +18,7 @@ module.exports = function (objectrepository) {
             }
             vasarloModel.updateOne(
                 {_id: req.params['vasarloid']},
-                {$inc: {treeNum: -1}}, function (error, result) {
+                {$inc: {treeNum: -1}}, function (error, secondResult) {
                     if(error){
                         return next(new Error('Error updating vasarlo'));
                     }
