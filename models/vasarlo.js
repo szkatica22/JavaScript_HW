@@ -4,7 +4,7 @@ const db = require('../config/db');
 const Vasarlo = db.model("customers", {
     name: String,
     email: String,
-    country: String,
+    city: String,
     treeNum: Number,
 });
 

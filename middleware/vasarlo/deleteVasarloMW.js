@@ -13,17 +13,18 @@ module.exports = function (objectRepository) {
     return function(req, res, next){
         vasarloModel.deleteOne({
             _id: req.params['vasarloid']
-        }, function (err, result) {
+        }, function (err) {
             if(err){
                 return next(new Error('Error deleting vasarlo'));
             }
             karacsonyfaModel.deleteMany(
                 {owner_ID: req.params['vasarloid']},
-                function (error, secondResult) {
+                function (error) {
                     if(error){
                         return next(new Error('Error deleting user\'s karacsonyfak'));
                     }
                     return res.redirect('/vasarlok');
+                    // return next();
                 });
         });
     }

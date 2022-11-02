@@ -4,37 +4,37 @@
 <div class="container">
     <h1>Karácsonyfa <% if (typeof karacsonyfa === "undefined") { %>létrehozása<% }else{ %>módosítása <% } %></h1>
     <form method="post">
-        <input type="hidden" name="id" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa._id %>">
+        <input type="hidden" name="id" id="id" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa._id %>">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputName">Fantázianév</label>
-                <input type="text" class="form-control" id="inputName" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.name %>">
+                <label for="name">Fantázianév</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.name %>">
             </div>
             <div class="form-group col-md-4">
-                <label for="inputHeight">Magasság (méter)</label>
-                <input type="number" class="form-control" id="inputHeight" placeholder="0.8" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.height %>">
+                <label for="height">Magasság (méter)</label>
+                <input type="number" step="0.1" class="form-control" id="height" name="height" placeholder="0.8" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.height %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label class="my-1 mr-2" for="inlineFormCustomSelectType">Típus</label>
-                <select class="custom-select" id="inlineFormCustomSelectType">
+                <label class="my-1 mr-2" for="type">Típus</label>
+                <select class="custom-select" id="type" name="type">
                     <option selected>...</option>
-                    <option value="1" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Luc") { %>selected<% }%>>Luc</option>
-                    <option value="2" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Ezüst") { %>selected<% }%>>Ezüst</option>
-                    <option value="3" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Nordmann") { %>selected<% }%>>Nordmann</option>
-                    <option value="4" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Mű") { %>selected<% }%>>Mű</option>
+                    <option value="Luc" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Luc") { %>selected<% }%>>Luc</option>
+                    <option value="Ezüst" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Ezüst") { %>selected<% }%>>Ezüst</option>
+                    <option value="Nordmann" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Nordmann") { %>selected<% }%>>Nordmann</option>
+                    <option value="Mű" <% if (typeof karacsonyfa !== "undefined" && karacsonyfa.type === "Mű") { %>selected<% }%>>Mű</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputPrice">Ár (forint)</label>
-                <input type="number" class="form-control" id="inputPrice" placeholder="8000" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.price %>">
+                <label for="price">Ár (forint)</label>
+                <input type="number" class="form-control" id="price" name="price" placeholder="8000" value="<%= (typeof  karacsonyfa === "undefined") ? '' : karacsonyfa.price %>">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <!--                <button type="submit" class="btn btn-primary">Save</button>-->
-                <a type="submit" href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-info btn-lg active" role="button">Karácsonyfa mentése</a>
+                <input type="submit" href="/karacsonyfak/<%= vasarlo._id %>" class="btn btn-info btn-lg active" value="Karácsonyfa mentése"/>
             </div>
             <div class="form-group col-md-4">
                 <!--                <button type="button" class="btn btn-primary">Back to Trees</button>-->

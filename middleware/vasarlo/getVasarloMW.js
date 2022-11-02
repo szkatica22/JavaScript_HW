@@ -21,15 +21,5 @@ module.exports = function (objectRepository) {
             res.locals.vasarlo = result;
             return next();
         });
-
-        // res.locals.vasarlo = {
-        //     _id: 'id1',
-        //     nev: "Nagy Józsi",
-        //     email: "njozsi7@valami.hu",
-        //     varos: "Győr",
-        //     fakszama: "2",
-        // };
-
-        // return next();
     }
 }
