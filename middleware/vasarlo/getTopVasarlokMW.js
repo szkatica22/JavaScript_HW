@@ -10,8 +10,7 @@ module.exports = function (objectRepository) {
     return function(req, res, next){
         return topVasarloModel.find({
             treeNum: { $gt: 1},
-            $sort: {treeNum : 1}
-        }, function (err, results) {
+        }).sort({treeNum : -1}).exec(function (err, results) {
             if(err){
                 return next(new Error('Error getting topVasarlok'));
             }
