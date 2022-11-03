@@ -11,20 +11,19 @@ module.exports = function (objectRepository) {
     const vasarloModel = requireOption(objectRepository, 'customerModel');
 
     return function(req, res, next){
-        vasarloModel.deleteOne({
+        return vasarloModel.deleteOne({
             _id: req.params['vasarloid']
         }, function (err) {
             if(err){
                 return next(new Error('Error deleting vasarlo'));
             }
-            karacsonyfaModel.deleteMany(
+            return karacsonyfaModel.deleteMany(
                 {owner_ID: req.params['vasarloid']},
                 function (error) {
                     if(error){
                         return next(new Error('Error deleting user\'s karacsonyfak'));
                     }
                     return res.redirect('/vasarlok');
-                    // return next();
                 });
         });
     }

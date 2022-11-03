@@ -8,8 +8,7 @@ module.exports = function (objectRepository) {
     const topVasarloModel = requireOption(objectRepository, 'customerModel');
 
     return function(req, res, next){
-
-        topVasarloModel.find({
+        return topVasarloModel.find({
             treeNum: { $gt: 1},
             $sort: {treeNum : 1}
         }, function (err, results) {

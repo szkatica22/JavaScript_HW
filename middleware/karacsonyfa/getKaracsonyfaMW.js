@@ -8,15 +8,13 @@ module.exports = function (objectrepository) {
     const karacsonyfaModel = requireOption(objectrepository, 'treeModel');
 
     return function (req, res, next) {
-
-        karacsonyfaModel.findOne({
+        return karacsonyfaModel.findOne({
             owner_ID: req.params['vasarloid'],
             _id: req.params['karacsonyfaid']
         }, function (err, result) {
             if((err) || (!result)){
                 return res.redirect('/karacsonyfak/', req.params['vasarloid']);
             }
-
             res.locals.karacsonyfa = result;
             return next();
         });
