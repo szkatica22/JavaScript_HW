@@ -2,6 +2,7 @@ const authMW = require('../middleware/auth/authMW');
 const userValidationMW = require('../middleware/auth/userValidationMW');
 const handleWrongPassMW = require('../middleware/auth/handleWrongPassMW');
 const renderMW = require('../middleware/render/renderMW');
+const logoutMW = require('../middleware/auth/logoutMW');
 
 const getTopVasarlokMW = require('../middleware/vasarlo/getTopVasarlokMW');
 const getVasarlokMW = require('../middleware/vasarlo/getVasarlokMW');
@@ -70,6 +71,8 @@ module.exports = function (app) {
         getVasarloMW(objectRepo),
         getKaracsonyfakMW(objectRepo),
         renderMW(objectRepo, 'karacsonyfak'));
+
+    app.use('/logout', logoutMW(objectRepo));
 
     app.use('/',
         getTopVasarlokMW(objectRepo),
