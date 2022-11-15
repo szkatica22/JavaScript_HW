@@ -10,20 +10,19 @@ module.exports = function (objectRepository) {
     const vasarloModel = requireOption(objectRepository, 'customerModel');
 
     return function (req, res, next) {
-        karacsonyfaModel.deleteOne({
+        return karacsonyfaModel.deleteOne({
             _id: req.params['karacsonyfaid']
         }, function (err) {
             if(err){
                 return next(new Error('Error deleting karacsonyfa'));
             }
-            vasarloModel.updateOne(
+            return vasarloModel.updateOne(
                 {_id: req.params['vasarloid']},
                 {$inc: {treeNum: -1}}, function (error) {
                     if(error){
                         return next(new Error('Error updating vasarlo'));
                     }
                     return res.redirect(`/karacsonyfak/${req.params['vasarloid']}`);
-                    // return next();
                 });
         });
     };

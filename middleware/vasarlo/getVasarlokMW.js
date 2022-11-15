@@ -10,8 +10,7 @@ module.exports = function (objectRepository) {
     const vasarloModel = requireOption(objectRepository, 'customerModel');
 
     return function(req, res, next){
-
-        vasarloModel.find({
+        return vasarloModel.find({
         }, function (err, results) {
             if(err){
                 return next(new Error('Error getting vasarlok'));
