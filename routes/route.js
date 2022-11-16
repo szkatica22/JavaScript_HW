@@ -1,6 +1,5 @@
 const authMW = require('../middleware/auth/authMW');
 const userValidationMW = require('../middleware/auth/userValidationMW');
-const handleWrongPassMW = require('../middleware/auth/handleWrongPassMW');
 const renderMW = require('../middleware/render/renderMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 
@@ -77,6 +76,5 @@ module.exports = function (app) {
     app.use('/',
         getTopVasarlokMW(objectRepo),
         userValidationMW(objectRepo),
-        handleWrongPassMW(objectRepo),
         renderMW(objectRepo, 'index'));
 }
