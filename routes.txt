@@ -20,7 +20,7 @@ Vásárlók és karácsonyfák:
      getTopVasarlokMW.js
      getVasarlokMW.js
      getVasarloMW.js
-     saveVasarloMW.js
+     getVasarloMW.js
      deleteVasarloMW.js
 
  middleware/karacsonyfa/

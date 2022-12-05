@@ -14,7 +14,7 @@ module.exports = function (objectRepository) {
             _id: req.params['vasarloid']
         }, function (err, result){
             if((err) || (!result)){
-                return res.redirect('/vasarlok');
+                return next(err);
             }
             res.locals.vasarlo = result;
             return next();
