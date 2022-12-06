@@ -12,8 +12,8 @@ module.exports = function (objectrepository) {
         return karacsonyfaModel.find({
             owner_ID: req.params['vasarloid']
         }, function (err, results) {
-            if(err){
-                return next(new Error('Error getting karacsonyfak'));
+            if(err || (!results)){
+                return next(err);
             }
             res.locals.karacsonyfak = results;
             return next();
